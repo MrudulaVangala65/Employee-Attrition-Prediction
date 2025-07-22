@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .register-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-top: 10px; /* Space between h1 and container */
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttons input[type="submit"], .buttons input[type="reset"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buttons input[type="submit"] {
+            background-color: black;
+            color: white;
+        }
+        .buttons input[type="reset"] {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Registration Form</h1> <!-- Page heading -->
+
+    <div class="register-container">
+        <form action="/register" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="buttons">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Employees</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Employee Details</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>EmployeeNumber</th>
+                    <th>Age</th>
+                    <th>BusinessTravel</th>
+                    <th>DailyRate</th>
+                    <th>Department</th>
+                    <th>DistanceFromHome</th>
+                    <th>Education</th>
+                    <th>EducationField</th>
+                    <th>EmployeeCount</th>
+                    <th>EnvironmentSatisfaction</th>
+                    <th>Gender</th>
+                    <th>HourlyRate</th>
+                    <th>JobInvolvement</th>
+                    <th>JobLevel</th>
+                    <th>JobRole</th>
+                    <th>JobSatisfaction</th>
+                    <th>MaritalStatus</th>
+                    <th>MonthlyIncome</th>
+                    <th>MonthlyRate</th>
+                    <th>NumCompaniesWorked</th>
+                    <th>OverTime</th>
+                    <th>PercentSalaryHike</th>
+                    <th>PerformanceRating</th>
+                    <th>RelationshipSatisfaction</th>
+                    <th>StandardHours</th>
+                    <th>StockOptionLevel</th>
+                    <th>TotalWorkingYears</th>
+                    <th>TrainingTimesLastYear</th>
+                    <th>WorkLifeBalance</th>
+                    <th>YearsAtCompany</th>
+                    <th>YearsInCurrentRole</th>
+                    <th>YearsSinceLastPromotion</th>
+                    <th>YearsWithCurrManager</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee.EmployeeNumber }}</td>
+                    <td>{{ employee.Age }}</td>
+                    <td>{{ employee.BusinessTravel }}</td>
+                    <td>{{ employee.DailyRate }}</td>
+                    <td>{{ employee.Department }}</td>
+                    <td>{{ employee.DistanceFromHome }}</td>
+                    <td>{{ employee.Education }}</td>
+                    <td>{{ employee.EducationField }}</td>
+                    <td>{{ employee.EmployeeCount }}</td>
+                    <td>{{ employee.EnvironmentSatisfaction }}</td>
+                    <td>{{ employee.Gender }}</td>
+                    <td>{{ employee.HourlyRate }}</td>
+                    <td>{{ employee.JobInvolvement }}</td>
+                    <td>{{ employee.JobLevel }}</td>
+                    <td>{{ employee.JobRole }}</td>
+                    <td>{{ employee.JobSatisfaction }}</td>
+                    <td>{{ employee.MaritalStatus }}</td>
+                    <td>{{ employee.MonthlyIncome }}</td>
+                    <td>{{ employee.MonthlyRate }}</td>
+                    <td>{{ employee.NumCompaniesWorked }}</td>
+                    <td>{{ employee.OverTime }}</td>
+                    <td>{{ employee.PercentSalaryHike }}</td>
+                    <td>{{ employee.PerformanceRating }}</td>
+                    <td>{{ employee.RelationshipSatisfaction }}</td>
+                    <td>{{ employee.StandardHours }}</td>
+                    <td>{{ employee.StockOptionLevel }}</td>
+                    <td>{{ employee.TotalWorkingYears }}</td>
+                    <td>{{ employee.TrainingTimesLastYear }}</td>
+                    <td>{{ employee.WorkLifeBalance }}</td>
+                    <td>{{ employee.YearsAtCompany }}</td>
+                    <td>{{ employee.YearsInCurrentRole }}</td>
+                    <td>{{ employee.YearsSinceLastPromotion }}</td>
+                    <td>{{ employee.YearsWithCurrManager }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

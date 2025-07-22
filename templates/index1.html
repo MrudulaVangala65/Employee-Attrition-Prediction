@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attrition Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            padding: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        input[type="submit"] {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Employee Attrition Prediction Form</h1>
+    <form action="/predict" method="post">
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age">
+        
+        <label for="BusinessTravel">Business Travel:</label>
+        <select id="BusinessTravel" name="BusinessTravel">
+            <option value="Travel_Rarely">Travel_Rarely</option>
+            <option value="Travel_Frequently">Travel_Frequently</option>
+            <option value="Non-Travel">Non-Travel</option>
+        </select>
+        
+        <label for="DailyRate">Daily Rate:</label>
+        <input type="number" id="DailyRate" name="DailyRate">
+        
+        <label for="Department">Department:</label>
+        <select id="Department" name="Department">
+            <option value="Sales">Sales</option>
+            <option value="Research & Development">Research & Development</option>
+            <option value="Human Resources">Human Resources</option>
+        </select>
+        
+        <label for="DistanceFromHome">Distance From Home:</label>
+        <input type="number" id="DistanceFromHome" name="DistanceFromHome">
+        
+        <label for="Education">Education:</label>
+        <input type="number" id="Education" name="Education">
+        
+        <label for="EducationField">Education Field:</label>
+        <select id="EducationField" name="EducationField">
+            <option value="Life Sciences">Life Sciences</option>
+            <option value="Medical">Medical</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Technical Degree">Technical Degree</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="EmployeeCount">Employee Count:</label>
+        <input type="number" id="EmployeeCount" name="EmployeeCount">
+
+        <label for="EmployeeNumber">Employee Number:</label>
+        <input type="number" id="EmployeeNumber" name="EmployeeNumber">
+
+        <label for="EnvironmentSatisfaction">Environment Satisfaction:</label>
+        <input type="number" id="EnvironmentSatisfaction" name="EnvironmentSatisfaction">
+
+        <label for="Gender">Gender:</label>
+        <select id="Gender" name="Gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="HourlyRate">Hourly Rate:</label>
+        <input type="number" id="HourlyRate" name="HourlyRate">
+
+        <label for="JobInvolvement">Job Involvement:</label>
+        <input type="number" id="JobInvolvement" name="JobInvolvement">
+
+        <label for="JobLevel">Job Level:</label>
+        <input type="number" id="JobLevel" name="JobLevel">
+
+        <label for="JobRole">Job Role:</label>
+        <select id="JobRole" name="JobRole">
+            <option value="Sales Executive">Sales Executive</option>
+            <option value="Research Scientist">Research Scientist</option>
+            <option value="Laboratory Technician">Laboratory Technician</option>
+            <option value="Manufacturing Director">Manufacturing Director</option>
+            <option value="Healthcare Representative">Healthcare Representative</option>
+            <option value="Manager">Manager</option>
+            <option value="Sales Representative">Sales Representative</option>
+            <option value="Research Director">Research Director</option>
+            <option value="Human Resources">Human Resources</option>
+        </select>
+
+        <label for="JobSatisfaction">Job Satisfaction:</label>
+        <input type="number" id="JobSatisfaction" name="JobSatisfaction">
+
+        <label for="MaritalStatus">Marital Status:</label>
+        <select id="MaritalStatus" name="MaritalStatus">
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+        </select>
+
+        <label for="MonthlyIncome">Monthly Income:</label>
+        <input type="number" id="MonthlyIncome" name="MonthlyIncome">
+
+        <label for="MonthlyRate">Monthly Rate:</label>
+        <input type="number" id="MonthlyRate" name="MonthlyRate">
+
+        <label for="NumCompaniesWorked">Num Companies Worked:</label>
+        <input type="number" id="NumCompaniesWorked" name="NumCompaniesWorked">
+
+        <label for="Over18">Over 18:</label>
+        <select id="Over18" name="Over18">
+            <option value="Y">Y</option>
+        </select>
+
+        <label for="OverTime">Over Time:</label>
+        <select id="OverTime" name="OverTime">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="PercentSalaryHike">Percent Salary Hike:</label>
+        <input type="number" id="PercentSalaryHike" name="PercentSalaryHike">
+
+        <label for="PerformanceRating">Performance Rating:</label>
+        <input type="number" id="PerformanceRating" name="PerformanceRating">
+
+        <label for="RelationshipSatisfaction">Relationship Satisfaction:</label>
+        <input type="number" id="RelationshipSatisfaction" name="RelationshipSatisfaction">
+
+        <label for="StandardHours">Standard Hours:</label>
+        <input type="number" id="StandardHours" name="StandardHours" value="80" readonly>
+
+        <label for="StockOptionLevel">Stock Option Level:</label>
+        <input type="number" id="StockOptionLevel" name="StockOptionLevel">
+
+        <label for="TotalWorkingYears">Total Working Years:</label>
+        <input type="number" id="TotalWorkingYears" name="TotalWorkingYears">
+
+        <label for="TrainingTimesLastYear">Training Times Last Year:</label>
+        <input type="number" id="TrainingTimesLastYear" name="TrainingTimesLastYear">
+
+        <label for="WorkLifeBalance">Work Life Balance:</label>
+        <input type="number" id="WorkLifeBalance" name="WorkLifeBalance">
+
+        <label for="YearsAtCompany">Years At Company:</label>
+        <input type="number" id="YearsAtCompany" name="YearsAtCompany">
+
+        <label for="YearsInCurrentRole">Years In Current Role:</label>
+        <input type="number" id="YearsInCurrentRole" name="YearsInCurrentRole">
+
+        <label for="YearsSinceLastPromotion">Years Since Last Promotion:</label>
+        <input type="number" id="YearsSinceLastPromotion" name="YearsSinceLastPromotion">
+
+        <label for="YearsWithCurrManager">Years With Current Manager:</label>
+        <input type="number" id="YearsWithCurrManager" name="YearsWithCurrManager">
+
+        <input type="submit" value="Predict Attrition">
+    </form>
+</body>
+</html>

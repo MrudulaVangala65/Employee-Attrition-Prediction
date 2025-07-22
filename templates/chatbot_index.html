@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Employee Info Chatbot</title>
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Employee Info Chatbot</h1>
+        <div class="chat-box" id="chat-box">
+            <!-- Chat messages will appear here -->
+        </div>
+        <input type="text" id="user-input" placeholder="Type your query...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var input = document.getElementById("user-input").value;
+            var chatBox = document.getElementById("chat-box");
+
+            // Display user message
+            chatBox.innerHTML += "<div class='user-message'>" + input + "</div>";
+
+            // Send query to Flask backend
+            fetch('/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query: input })
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatBox.innerHTML += "<div class='bot-message'>" + data.response + "</div>";
+                document.getElementById("user-input").value = ""; // Clear input
+                chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+            })
+            .catch(error => {
+                chatBox.innerHTML += "<div class='bot-message'>Error: " + error + "</div>";
+            });
+        }
+    </script>
+</body>
+</html>

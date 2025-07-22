@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login Page</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: black; /* Black color for heading */
+            margin-top: 20px;
+        }
+        body {
+            background-color: #f0f0f0; /* Light grey background */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff; /* White container */
+            padding: 30px; /* Increased padding */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+            width: 300px; /* Increased container width */
+            margin-top: 20px;
+        }
+        h4 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000; /* Black color for subheading */
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #000; /* Black color for labels */
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%; /* Full width */
+            padding: 15px; /* Increased padding */
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Light grey border */
+            border-radius: 5px;
+            height: 40px; /* Increased height */
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+        .input-icon {
+            position: relative; /* Allow positioning of icons */
+        }
+        .input-icon i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa; /* Icon color */
+        }
+        .login-button {
+            width: 100%; /* Full width */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #000; /* Black background */
+            color: white; /* White text */
+            cursor: pointer;
+            font-size: 16px; /* Font size */
+        }
+        .login-button:hover {
+            background-color: #333; /* Darker black on hover */
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .register-link a {
+            text-decoration: none;
+            color: black; /* Black color for link */
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Login Page</h1>
+    
+    <div class="login-container">
+        <h4>Admin Login</h4>
+        <form action="/admin/login" method="POST">
+            <div class="input-icon">
+                <i class="fa fa-user"></i>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-icon">
+                <i class="fa fa-lock"></i>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+
+            <input type="submit" value="Login" class="login-button">
+        </form>
+
+        <div class="register-link">
+            <p><a href="/">Back to User Login</a></p> <!-- Link to go back to user login -->
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+</body>
+</html>

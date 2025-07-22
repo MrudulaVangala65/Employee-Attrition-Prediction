@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+</head>
+<body align="center">
+    <h1>Attrition Prediction Result</h1>
+    <h2>{{ prediction }}</h2>
+
+    {% if prediction == 'The employee may leave.' %}
+        <form action="{{ url_for('notify_admin') }}" method="POST">
+            <input type="hidden" name="employee_number" value="{{ employee_number }}">
+            <input type="hidden" name="age" value="{{ age }}">
+            <input type="hidden" name="job_role" value="{{ job_role }}">
+            <button type="submit">Notify</button>
+        </form>
+    {% endif %}
+    
+    <a href="{{ url_for('attrition_prediction') }}">Make Another Prediction</a>
+</body>
+</html>

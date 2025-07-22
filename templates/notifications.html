@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* White background */
+            margin: 0;
+            padding: 20px;
+            color: #000000; /* Black text */
+        }
+
+        h1 {
+            color: #000000; /* Black heading */
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .notification-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4; /* Light gray background for contrast */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+
+        .alert-box {
+            background-color: #ffffff; /* White background for alerts */
+            border-left: 4px solid #000000; /* Black left border */
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .alert-message {
+            font-weight: bold;
+            color: #000000; /* Black text for alert message */
+        }
+
+        .alert-details {
+            margin-top: 8px;
+            color: #000000; /* Black text for details */
+        }
+
+        .delete-button {
+            background-color: #ff4d4d; /* Red background for delete button */
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete-button:hover {
+            background-color: #e60000; /* Darker red on hover */
+        }
+
+        .no-notifications {
+            color: #666666; /* Gray text for no notifications message */
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #000000; /* Black color for back link */
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #005fa3; /* Blue color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Notifications</h1>
+    <div class="notification-container">
+        {% if show_notifications and notifications %}
+            {% for notification in notifications %}
+                <div class="alert-box">
+                    <div>
+                        <div class="alert-message">Alert: Employee is likely to leave</div>
+                        <div class="alert-details">
+                            <p>Employee Number: {{ notification.employee_number }}</p>
+                            <p>Age: {{ notification.age }}</p>
+                            <p>Job Role: {{ notification.job_role }}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-notifications">No notifications available.</div>
+        {% endif %}
+    </div>
+    <div style="text-align: center;">
+        <a href="{{ url_for('employee_dashboard') }}" class="back-link">Back to Employee Dashboard</a>
+    </div>
+</body>
+</html>

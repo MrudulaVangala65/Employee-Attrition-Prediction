@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            width: 100%;
+        }
+        label, input, select {
+            margin: 5px 0;
+        }
+        input[type="submit"] {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: black;
+        }
+        a {
+            margin-top: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        a:hover {
+            color: #4CAF50;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function showField(selectedColumn) {
+            // Hide all input fields initially
+            const inputs = document.querySelectorAll(".dynamic-input");
+            inputs.forEach(input => input.classList.add("hidden"));
+
+            // Display the selected input field
+            if (selectedColumn) {
+                document.getElementById(selectedColumn).classList.remove("hidden");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Update Employee Details</h2>
+    <form method="post" action="/update">  <!-- Update action to point to the update route -->
+        <label for="EmployeeNumber">Employee Number:</label>
+        <input type="text" id="EmployeeNumber" name="EmployeeNumber" required>
+
+        <label for="column">Select Column to Update:</label>
+        <select id="column" name="column" onchange="showField(this.value)" required>
+            <option value="">--Select Column--</option>
+            <option value="Age">Age</option>
+            <option value="BusinessTravel">Business Travel</option>
+            <option value="DailyRate">Daily Rate</option>
+            <option value="Department">Department</option>
+            <option value="DistanceFromHome">Distance From Home</option>
+            <option value="Education">Education</option>
+            <option value="EducationField">Education Field</option>
+            <option value="EmployeeCount">Employee Count</option>
+            <option value="EnvironmentSatisfaction">Environment Satisfaction</option>
+            <option value="Gender">Gender</option>
+            <option value="HourlyRate">Hourly Rate</option>
+            <option value="JobInvolvement">Job Involvement</option>
+            <option value="JobLevel">Job Level</option>
+            <option value="JobRole">Job Role</option>
+            <option value="JobSatisfaction">Job Satisfaction</option>
+            <option value="MaritalStatus">Marital Status</option>
+            <option value="MonthlyIncome">Monthly Income</option>
+            <option value="MonthlyRate">Monthly Rate</option>
+            <option value="NumCompaniesWorked">Number of Companies Worked</option>
+            <option value="OverTime">Overtime</option>
+            <option value="PercentSalaryHike">Percent Salary Hike</option>
+            <option value="PerformanceRating">Performance Rating</option>
+            <option value="RelationshipSatisfaction">Relationship Satisfaction</option>
+            <option value="StandardHours">Standard Hours</option>
+            <option value="StockOptionLevel">Stock Option Level</option>
+            <option value="TotalWorkingYears">Total Working Years</option>
+            <option value="TrainingTimesLastYear">Training Times Last Year</option>
+            <option value="WorkLifeBalance">Work-Life Balance</option>
+            <option value="YearsAtCompany">Years at Company</option>
+            <option value="YearsInCurrentRole">Years in Current Role</option>
+            <option value="YearsSinceLastPromotion">Years Since Last Promotion</option>
+            <option value="YearsWithCurrManager">Years with Current Manager</option>
+        </select>
+
+        <!-- Dynamic input fields for each column -->
+        <div id="Age" class="dynamic-input hidden">
+            <label for="AgeInput">Age:</label>
+            <input type="number" id="AgeInput" name="Age">
+        </div>
+        <div id="BusinessTravel" class="dynamic-input hidden">
+            <label for="BusinessTravelInput">Business Travel:</label>
+            <input type="text" id="BusinessTravelInput" name="BusinessTravel">
+        </div>
+        <div id="DailyRate" class="dynamic-input hidden">
+            <label for="DailyRateInput">Daily Rate:</label>
+            <input type="number" id="DailyRateInput" name="DailyRate">
+        </div>
+        <div id="Department" class="dynamic-input hidden">
+            <label for="DepartmentInput">Department:</label>
+            <input type="text" id="DepartmentInput" name="Department">
+        </div>
+        <div id="DistanceFromHome" class="dynamic-input hidden">
+            <label for="DistanceFromHomeInput">Distance From Home:</label>
+            <input type="number" id="DistanceFromHomeInput" name="DistanceFromHome">
+        </div>
+        <div id="Education" class="dynamic-input hidden">
+            <label for="EducationInput">Education:</label>
+            <input type="text" id="EducationInput" name="Education">
+        </div>
+        <div id="EducationField" class="dynamic-input hidden">
+            <label for="EducationFieldInput">Education Field:</label>
+            <input type="text" id="EducationFieldInput" name="EducationField">
+        </div>
+        <div id="EmployeeCount" class="dynamic-input hidden">
+            <label for="EmployeeCountInput">Employee Count:</label>
+            <input type="number" id="EmployeeCountInput" name="EmployeeCount">
+        </div>
+        <div id="EnvironmentSatisfaction" class="dynamic-input hidden">
+            <label for="EnvironmentSatisfactionInput">Environment Satisfaction:</label>
+            <input type="number" id="EnvironmentSatisfactionInput" name="EnvironmentSatisfaction">
+        </div>
+        <div id="Gender" class="dynamic-input hidden">
+            <label for="GenderInput">Gender:</label>
+            <select id="GenderInput" name="Gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div id="HourlyRate" class="dynamic-input hidden">
+            <label for="HourlyRateInput">Hourly Rate:</label>
+            <input type="number" id="HourlyRateInput" name="HourlyRate">
+        </div>
+        <div id="JobInvolvement" class="dynamic-input hidden">
+            <label for="JobInvolvementInput">Job Involvement:</label>
+            <input type="number" id="JobInvolvementInput" name="JobInvolvement">
+        </div>
+        <div id="JobLevel" class="dynamic-input hidden">
+            <label for="JobLevelInput">Job Level:</label>
+            <input type="number" id="JobLevelInput" name="JobLevel">
+        </div>
+        <div id="JobRole" class="dynamic-input hidden">
+            <label for="JobRoleInput">Job Role:</label>
+            <input type="text" id="JobRoleInput" name="JobRole">
+        </div>
+        <div id="JobSatisfaction" class="dynamic-input hidden">
+            <label for="JobSatisfactionInput">Job Satisfaction:</label>
+            <input type="number" id="JobSatisfactionInput" name="JobSatisfaction">
+        </div>
+        <div id="MaritalStatus" class="dynamic-input hidden">
+            <label for="MaritalStatusInput">Marital Status:</label>
+            <select id="MaritalStatusInput" name="MaritalStatus">
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+            </select>
+        </div>
+        <div id="MonthlyIncome" class="dynamic-input hidden">
+            <label for="MonthlyIncomeInput">Monthly Income:</label>
+            <input type="number" id="MonthlyIncomeInput" name="MonthlyIncome">
+        </div>
+        <div id="MonthlyRate" class="dynamic-input hidden">
+            <label for="MonthlyRateInput">Monthly Rate:</label>
+            <input type="number" id="MonthlyRateInput" name="MonthlyRate">
+        </div>
+        <div id="NumCompaniesWorked" class="dynamic-input hidden">
+            <label for="NumCompaniesWorkedInput">Number of Companies Worked:</label>
+            <input type="number" id="NumCompaniesWorkedInput" name="NumCompaniesWorked">
+        </div>
+        <div id="OverTime" class="dynamic-input hidden">
+            <label for="OverTimeInput">Overtime:</label>
+            <select id="OverTimeInput" name="OverTime">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div id="PercentSalaryHike" class="dynamic-input hidden">
+            <label for="PercentSalaryHikeInput">Percent Salary Hike:</label>
+            <input type="number" id="PercentSalaryHikeInput" name="PercentSalaryHike">
+        </div>
+        <div id="PerformanceRating" class="dynamic-input hidden">
+            <label for="PerformanceRatingInput">Performance Rating:</label>
+            <input type="number" id="PerformanceRatingInput" name="PerformanceRating">
+        </div>
+        <div id="RelationshipSatisfaction" class="dynamic-input hidden">
+            <label for="RelationshipSatisfactionInput">Relationship Satisfaction:</label>
+            <input type="number" id="RelationshipSatisfactionInput" name="RelationshipSatisfaction">
+        </div>
+        <div id="StandardHours" class="dynamic-input hidden">
+            <label for="StandardHoursInput">Standard Hours:</label>
+            <input type="number" id="StandardHoursInput" name="StandardHours">
+        </div>
+        <div id="StockOptionLevel" class="dynamic-input hidden">
+            <label for="StockOptionLevelInput">Stock Option Level:</label>
+            <input type="number" id="StockOptionLevelInput" name="StockOptionLevel">
+        </div>
+        <div id="TotalWorkingYears" class="dynamic-input hidden">
+            <label for="TotalWorkingYearsInput">Total Working Years:</label>
+            <input type="number" id="TotalWorkingYearsInput" name="TotalWorkingYears">
+        </div>
+        <div id="TrainingTimesLastYear" class="dynamic-input hidden">
+            <label for="TrainingTimesLastYearInput">Training Times Last Year:</label>
+            <input type="number" id="TrainingTimesLastYearInput" name="TrainingTimesLastYear">
+        </div>
+        <div id="WorkLifeBalance" class="dynamic-input hidden">
+            <label for="WorkLifeBalanceInput">Work-Life Balance:</label>
+            <input type="number" id="WorkLifeBalanceInput" name="WorkLifeBalance">
+        </div>
+        <div id="YearsAtCompany" class="dynamic-input hidden">
+            <label for="YearsAtCompanyInput">Years at Company:</label>
+            <input type="number" id="YearsAtCompanyInput" name="YearsAtCompany">
+        </div>
+        <div id="YearsInCurrentRole" class="dynamic-input hidden">
+            <label for="YearsInCurrentRoleInput">Years in Current Role:</label>
+            <input type="number" id="YearsInCurrentRoleInput" name="YearsInCurrentRole">
+        </div>
+        <div id="YearsSinceLastPromotion" class="dynamic-input hidden">
+            <label for="YearsSinceLastPromotionInput">Years Since Last Promotion:</label>
+            <input type="number" id="YearsSinceLastPromotionInput" name="YearsSinceLastPromotion">
+        </div>
+        <div id="YearsWithCurrManager" class="dynamic-input hidden">
+            <label for="YearsWithCurrManagerInput">Years with Current Manager:</label>
+            <input type="number" id="YearsWithCurrManagerInput" name="YearsWithCurrManager">
+        </div>
+
+        <input type="submit" value="Update Employee">
+    </form>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
